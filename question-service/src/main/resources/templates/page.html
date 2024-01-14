@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta charset="UTF-8" />
+<title>Employee</title>
+
+</head>
+ <div class="container">
+        <div class="login">
+        <form action="login" method="post">
+        <input type="email" id="email"  name="email" placeholder="Enter the email address"><br>
+        <input type="password" id="pass" name="pass" placeholder="Enter the Password"><br>
+        New user?<a th:href="@{/newuser}">Create New Account</a><br>
+        <a th:href="@{/forget}">Forgotten Password</a><br>
+        <input type="submit" value="login">
+        </form>
+    </div>
+    </div>
+
+</body>
+</html>

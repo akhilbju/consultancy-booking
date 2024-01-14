@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li><a th:href="@{/home}">Home</a></li>
+            <li><a th:href="@{/edit/{id}(id=${session.user.id})}">Edit Profile</a></li>
+            <li><a th:href="@{/history/{id}(id=${session.user.id})}"S>Show Bookings</a></li>
+            <li><span th:text="${session.user.name}"></span></li>
+            <li><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </nav>
+    <h1>Select Date and Time</h1>
+    <form method="post" th:action="@{/check/{id}(id=${id})}">
+   <input type="date" required="required" name="date" th:value="${min}" th:min="${min}" th:max="${max}">
+   <select name="time">
+	   <option value="10:00 am">10:00am</option>
+	    <option value="11:00am">11:00am</option>
+	     <option value="12:00pm">12:00pm</option>
+	      <option value="1:00pm">1:00pm</option>
+   </select>
+   <input type="submit" value="Book">
+	</form>
+</body>
+</html>

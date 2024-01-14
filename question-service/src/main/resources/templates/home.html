@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
+    <title>Home</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a th:href="@{/home}">Home</a></li>
+            <li><a th:href="@{/edit/{id}(id=${session.user.id})}">Edit Profile</a></li>
+            <li><a th:href="@{/history/{id}(id=${session.user.id})}"S>Show Bookings</a></li>
+            <li><span th:text="${session.user.name}"></span></li>
+            <li><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </nav>
+    <h1>Hospitals</h1>
+    <table>
+        <tr th:each="hospital : ${hospitals}">
+            <td th:text="${hospital.name}">Name></td>
+            <td><a th:href="@{/click/{id}(id=${hospital.hospital_id})}">Click Me</a></td>
+        </tr>
+    </table>
+</body>
+</html>
